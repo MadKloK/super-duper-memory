@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'accounts.apps.AccountsConfig',
-    'blog.apps.BlogConfig',
+    # 'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +130,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+# User manager config
+AUTH_USER_MODEL = 'accounts.User'
