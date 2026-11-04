@@ -57,3 +57,20 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def __str__(self):
         return self.email
+
+
+class Profile(models.Model):
+    '''
+    Model representing a user profile.
+    '''
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    image = models.ImageField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.email
